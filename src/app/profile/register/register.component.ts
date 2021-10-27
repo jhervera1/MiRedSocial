@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { registerUser, User } from 'src/app/model/models';
 
 @Component({
@@ -18,10 +18,25 @@ export class RegisterComponent implements OnInit {
     password:"",
     confirmPassword:""
   };
+  @Output() confirmedUser:EventEmitter<User> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  registerUser():void{
+
+    this.confirmedUser.emit();
+  }
+
+  checkIfEmpty(user:User):boolean{
+    return true;
+  }
+
+  fetchIntefaceIntoClass(interfaceUser:registerUser){
+    let classUser: User = new User(interfaceUser.name,interfaceUser.lastName,interfaceUser.age,interfaceUser.photo,
+      interfaceUser.description,interfaceUser.mail,interfaceUser.password);
+    return classUser;
+  }
 }
