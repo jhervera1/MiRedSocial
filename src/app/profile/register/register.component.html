@@ -11,6 +11,12 @@
       <input name="description" [(ngModel)]="registeredUser.description"><br>
       <label>Correu</label><br>
       <input name="mail" [(ngModel)]="registeredUser.mail"><br>
+      <label>Contrasenya</label>
+      <input name="password" [(ngModel)]="registeredUser.password"><br>
+      <label>Confirmar contrasenya</label>
+      <input name="password" [(ngModel)]="registeredUser.confirmPassword"><br>
+      <label>Foto</label>
+      <input type="file" accept="image/*" value="">
       <button (click)="registerUser()"> registrar</button>
     </form>
 </div>
