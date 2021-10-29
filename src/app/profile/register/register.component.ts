@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     photo:"",
     mail:"",
     password:"",
-    confirmPassword:""
+    confirmPassword:"",
   };
   @Output() confirmedUser:EventEmitter<User> = new EventEmitter();
 
@@ -35,8 +35,19 @@ export class RegisterComponent implements OnInit {
   }
 
   fetchIntefaceIntoClass(interfaceUser:registerUser){
+
     let classUser: User = new User(interfaceUser.name,interfaceUser.lastName,interfaceUser.age,interfaceUser.photo,
       interfaceUser.description,interfaceUser.mail,interfaceUser.password);
     return classUser;
+
   }
+
+
+  uploadFile(event:any){
+    //fer que es mostri la imatge al pujar-la
+    console.log(event)
+    this.registeredUser.photo = "data:"+event.target.files[0].type+";base64,"+btoa(event.target.files[0].name);
+    console.log(this.registeredUser.photo);
+  }
+
 }

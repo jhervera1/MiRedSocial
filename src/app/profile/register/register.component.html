@@ -16,7 +16,8 @@
       <label>Confirmar contrasenya</label>
       <input name="password" [(ngModel)]="registeredUser.confirmPassword"><br>
       <label>Foto</label>
-      <input type="file" accept="image/*" value="">
+      <img src={{registeredUser.photo}} alt="">
+      <input type="file" accept="image/*" (change)="uploadFile($event)" #fileInput >
       <button (click)="registerUser()"> registrar</button>
     </form>
 </div>
