@@ -1,6 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { registerUser, User } from 'src/app/model/models';
-
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -49,5 +49,4 @@ export class RegisterComponent implements OnInit {
     this.registeredUser.photo = "data:"+event.target.files[0].type+";base64,"+btoa(event.target.files[0].name);
     console.log(this.registeredUser.photo);
   }
-
 }
