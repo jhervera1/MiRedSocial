@@ -8,6 +8,7 @@ import { Route, Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  clicked:boolean = false;
   registeredUser: registerUser = {
     name:"",
     lastName:"",
@@ -23,6 +24,7 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.clicked = false;
   }
 
   registerUser():void{
@@ -34,6 +36,9 @@ export class RegisterComponent implements OnInit {
     return true;
   }
 
+  changeClicked():void{
+    this.clicked = true;
+  }
   fetchIntefaceIntoClass(interfaceUser:registerUser){
 
     let classUser: User = new User(interfaceUser.name,interfaceUser.lastName,interfaceUser.age,interfaceUser.photo,

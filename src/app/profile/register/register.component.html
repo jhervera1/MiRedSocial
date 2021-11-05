@@ -1,6 +1,6 @@
 
 
-<ng-container>
+<ng-container *ngIf="!clicked">
   <div>
     <form>
       <label>Nom</label><br>
@@ -24,7 +24,7 @@
     </form>
 </div>
 
-<a href="../profile.component.ts" >aaaaaaa</a>
-
+<nav><a routerLink="profile" (click)="changeClicked()" >aaaaaaa</a>
+</nav>
 </ng-container>
-<router-outlet></router-outlet>
+<router-outlet *ngIf="clicked"></router-outlet>
