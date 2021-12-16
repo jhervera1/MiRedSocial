@@ -1,6 +1,7 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { registerUser, User } from 'src/app/model/models';
 import { Route, Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
     password:"",
     confirmPassword:"",
   };
-  @Output() confirmedUser:EventEmitter<User> = new EventEmitter();
+
+  @Output() confirmedUser:EventEmitter<registerUser> = new EventEmitter();
 
   constructor() { }
 
@@ -27,26 +29,25 @@ export class RegisterComponent implements OnInit {
     this.clicked = false;
   }
 
-  registerUser():void{
+  registerUsers():void{
+    this.confirmedUser.emit(this.registeredUser);
+    this.registeredUser ={
+      name:"",
+      lastName:"",
+      age:0,
+      description:"",
+      photo:"",
+      mail:"",
+      password:"",
+      confirmPassword:"",
+    }
 
-    this.confirmedUser.emit();
   }
 
-  checkIfEmpty(user:User):boolean{
-    return true;
-  }
 
   changeClicked():void{
     this.clicked = true;
   }
-  fetchIntefaceIntoClass(interfaceUser:registerUser){
-
-    let classUser: User = new User(interfaceUser.name,interfaceUser.lastName,interfaceUser.age,interfaceUser.photo,
-      interfaceUser.description,interfaceUser.mail,interfaceUser.password);
-    return classUser;
-
-  }
-
 
   uploadFile(event:any){
     //fer que es mostri la imatge al pujar-la
@@ -54,4 +55,7 @@ export class RegisterComponent implements OnInit {
     this.registeredUser.photo = "data:"+event.target.files[0].type+";base64,"+btoa(event.target.files[0].name);
     console.log(this.registeredUser.photo);
   }
+
+
+
 }

@@ -25,6 +25,7 @@ import { RouterModule } from '@angular/router';
   ],
   bootstrap: [
     ProfileComponent
-  ]
+  ],
+  entryComponents:[UserDetailsComponent]
 })
 export class ProfileModule { }

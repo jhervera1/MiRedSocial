@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { registerUser, User } from 'src/app/model/models';
 
 @Component({
   selector: 'app-user-details',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor() { }
+
+  user:registerUser|any = {};
+
+  constructor() {
+
+   }
 
   ngOnInit(): void {
+    console.log(this.user.photo)
   }
 
 }

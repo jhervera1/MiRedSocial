@@ -11,6 +11,7 @@ import { UserAdminListComponent } from './admin-panel/user-list/user-admin-list.
 import { RegisterComponent } from './profile/register/register.component';
 import { UserDetailsComponent } from './profile/user-details/user-details.component';
 import { UserListComponent } from './profile/user-list/user-list.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
     ProfileModule,
     AdminPanelModule,
     RouterModule.forRoot(routes),
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [ProfileComponent]

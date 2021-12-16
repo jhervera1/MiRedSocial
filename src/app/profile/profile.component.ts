@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../model/models';
+import { registerUser, User } from '../model/models';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +9,7 @@ import { User } from '../model/models';
 export class ProfileComponent implements OnInit {
 
 
-  RegisteredUsers:User[] = [];
+  RegisteredUsers:registerUser[] = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -22,11 +22,30 @@ export class ProfileComponent implements OnInit {
 
 
   fetchHardCodedUsers():void{
-    this.RegisteredUsers.push(new User("Joel","Hervera",22,"null","Hombre","joelhervera@gmail.com","password"),new User("Oriol","Nadal",20,"null","Hombre","oriolnadal@gmail.com","password"))
+    //"Joel","Hervera",22,"null","Hombre","joelhervera@gmail.com","password"),
+
+    this.RegisteredUsers.push({name:"Joel",lastName:"Hervera",age:22,photo:"",description:"haha cum",mail:"joelhervera@gmail.com",password:"password",confirmPassword:"password"})
     console.log(this.RegisteredUsers);
 
   }
 
 
+  addUser(registeredUser:registerUser){
+    this.RegisteredUsers.push(registeredUser);
+  }
 
 }
+
+
+
+//registeredUser model
+/*
+  name : string,
+  lastName : string,
+  age:number,
+  photo:string,
+  description: string,
+  mail:string,
+  password : string,
+  confirmPassword:string;
+*/
