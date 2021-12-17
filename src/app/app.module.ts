@@ -12,10 +12,11 @@ import { RegisterComponent } from './profile/register/register.component';
 import { UserDetailsComponent } from './profile/user-details/user-details.component';
 import { UserListComponent } from './profile/user-list/user-list.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: '', component: ProfileComponent },
   { path: 'userDetails', component: UserDetailsComponent },
   { path: 'userList', component: UserListComponent },
   { path: 'adminPanel', component: AdminPanelComponent },
@@ -31,10 +32,11 @@ const routes: Routes = [
     BrowserModule,
     ProfileModule,
     AdminPanelModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     ModalModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [ProfileComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

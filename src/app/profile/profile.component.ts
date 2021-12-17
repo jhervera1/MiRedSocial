@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { registerUser, User } from '../model/models';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,25 +11,12 @@ export class ProfileComponent implements OnInit {
 
 
   RegisteredUsers:registerUser[] = [];
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-    this.fetchHardCodedUsers();
+    this.RegisteredUsers = this.userService.getUser();
+    console.log(this.RegisteredUsers)
   }
-
-
-
-
-
-
-  fetchHardCodedUsers():void{
-    //"Joel","Hervera",22,"null","Hombre","joelhervera@gmail.com","password"),
-
-    this.RegisteredUsers.push({name:"Joel",lastName:"Hervera",age:22,photo:"",description:"haha cum",mail:"joelhervera@gmail.com",password:"password",confirmPassword:"password"})
-    console.log(this.RegisteredUsers);
-
-  }
-
 
   addUser(registeredUser:registerUser){
     this.RegisteredUsers.push(registeredUser);

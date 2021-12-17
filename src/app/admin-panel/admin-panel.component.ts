@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { registerUser } from '../model/models';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor() { }
+  userList:registerUser[]=[];
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+    this.userList = this.userService.getUser();
+    console.log(this.userList)
   }
 
 }

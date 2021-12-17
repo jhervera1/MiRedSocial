@@ -4,7 +4,7 @@ import { ProfileComponent } from './profile.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 
@@ -18,7 +18,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
   ],
   exports: [
 

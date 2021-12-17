@@ -1,1 +1,4 @@
-<p>user-list works!</p>
+<div *ngFor="let user of userList" (click)="openDetails(user)">
+  <p>{{user.name}}
+  <img src="https://picsum.photos/200/300.webp" (click)="deleteUser(user)"></p>
+</div>

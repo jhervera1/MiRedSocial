@@ -1,30 +1,27 @@
 
 
-<ng-container *ngIf="!clicked">
+<ng-container>
   <div>
-    <form>
-      <label>Nom</label><br>
-      <input name="name" [(ngModel)]="registeredUser.name"><br>
+    <form novalidate [formGroup]="validateUsers">
+      <label>Nom</label><br><!--[(ngModel)]="registeredUser.name"-->
+      <input name="name" formControlName="name"><br>
       <label>Cognom</label><br>
-      <input name="lastName" [(ngModel)]="registeredUser.lastName"><br>
+      <input name="lastName" formControlName="lastName"><br>
       <label>Edat</label><br>
-      <input name="age" [(ngModel)]="registeredUser.age"><br>
+      <input name="age" formControlName="age" ><br>
       <label>Descripció</label><br>
-      <input name="description" [(ngModel)]="registeredUser.description"><br>
+      <input name="description" formControlName="description"><br>
       <label>Correu</label><br>
-      <input name="mail" [(ngModel)]="registeredUser.mail"><br>
+      <input name="mail" formControlName="mail"><br>
       <label>Contrasenya</label>
-      <input name="password" [(ngModel)]="registeredUser.password"><br>
+      <input name="password" formControlName="password"><br>
       <label>Confirmar contrasenya</label>
-      <input name="password" [(ngModel)]="registeredUser.confirmPassword"><br>
+      <input name="password" formControlName="confirmPassword"><br>
       <label>Foto</label>
       <img src="{{registeredUser.photo}}" alt="">
-      <input type="file" accept="image/*" (change)="uploadFile($event)" #fileInput >
-      <button (click)="registerUsers()"> registrar</button>
+      <input type="file" accept="image/*" formControlName="photo" (change)="uploadFile($event)" #fileInput >
+      <button [disabled]="!validateUsers.valid" (click)="registerUsers()"> registrar</button>
     </form>
 </div>
 
-<nav><a routerLink="profile" (click)="changeClicked()" >aaaaaaa</a>
-</nav>
 </ng-container>
-<router-outlet *ngIf="clicked"></router-outlet>
