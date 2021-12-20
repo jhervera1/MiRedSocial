@@ -33,6 +33,6 @@ export class UserService {
   }
 
   fillLocalStorage(){
-    localStorage.setItem('users',JSON.stringify([{name:"Joel",lastName:"Hervera",age:22,photo:"",description:"haha cum",mail:"joelhervera@gmail.com",password:"password",confirmPassword:"password"}]));
+    localStorage.setItem('users',JSON.stringify([{name:"Joel",lastName:"Hervera",age:22,photo:"",description:"programador junior",mail:"joelhervera@gmail.com",password:"password",confirmPassword:"password"}]));
   }
 }
