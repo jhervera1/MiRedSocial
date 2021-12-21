@@ -1,25 +1,30 @@
 
 
+<div class="description">
+  <span class="text">
+    Porfavor rellene los campos para poder registrar un usuario nuevo.
+  </span>
+</div>
 <ng-container>
   <div class="form">
     <form class="formContent" novalidate [formGroup]="validateUsers">
-      <label>Nom</label><br><!--[(ngModel)]="registeredUser.name"-->
-      <input name="name" formControlName="name"><br>
-      <label>Cognom</label><br>
-      <input name="lastName" formControlName="lastName"><br>
-      <label>Edat</label><br>
-      <input name="age" formControlName="age" ><br>
-      <label>Descripció</label><br>
-      <input name="description" formControlName="description"><br>
-      <label>Correu</label><br>
-      <input name="mail" formControlName="mail"><br>
+      <label>Nom</label><!--[(ngModel)]="registeredUser.name"-->
+      <input name="name" formControlName="name">
+      <label>Cognom</label>
+      <input name="lastName" formControlName="lastName">
+      <label>Edat</label>
+      <input name="age" formControlName="age" >
+      <label>Descripció</label>
+      <input name="description" formControlName="description">
+      <label>Correu</label>
+      <input name="mail" formControlName="mail">
       <label>Contrasenya</label>
-      <input name="password" formControlName="password"><br>
+      <input name="password" formControlName="password">
       <label>Confirmar contrasenya</label>
-      <input name="password" formControlName="confirmPassword"><br>
+      <input name="password" formControlName="confirmPassword">
       <label>Foto</label>
-      <img src="{{registeredUser.photo}}" alt="">
-      <input type="file" accept="image/*" formControlName="photo" (change)="uploadFile($event)" #fileInput >
+      <img [src]="registeredUser.photo" class="userImg" alt="">
+      <input type="file" accept="image/*" formControlName="photo" (change)="fileChangeEvent($event)" #fileInput >
       <button [disabled]="!validateUsers.valid" (click)="registerUsers()"> registrar</button>
     </form>
 </div>

@@ -16,11 +16,14 @@ export class RegisterComponent implements OnInit {
     lastName: '',
     age: 0,
     description: '',
-    photo: '',
+    photo: '../../../assets/placeholder-image.png',
     mail: '',
     password: '',
     confirmPassword: '',
   };
+  imgBase64Path: string = '';
+  isImageSaved: boolean = false;
+  cardImageBase64: string = '';
 
   validateUsers: FormGroup = new FormGroup({});
 
@@ -59,7 +62,7 @@ export class RegisterComponent implements OnInit {
       lastName: this.validateUsers.get('lastName')?.value,
       age: this.validateUsers.get('age')?.value,
       description: this.validateUsers.get('description')?.value,
-      photo: this.validateUsers.get('photo')?.value,
+      photo: this.cardImageBase64,
       mail: this.validateUsers.get('mail')?.value,
       password: this.validateUsers.get('password')?.value,
       confirmPassword: this.validateUsers.get('confirmPassword')?.value,
@@ -89,13 +92,24 @@ export class RegisterComponent implements OnInit {
     this.clicked = true;
   }
 
-  uploadFile(event: any) {
-    //fer que es mostri la imatge al pujar-la
-    console.log(this.validateUsers);
-    this.registeredUser.photo =
-      'data:' +
-      event.target.files[0].type +
-      ';base64,' +
-      btoa(event.target.files[0].name);
+
+
+
+  fileChangeEvent(fileInput: any) {
+    if (fileInput.target.files && fileInput.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const image = new Image();
+        image.src = e.target.result;
+        image.onload = (rs) => {
+          this.imgBase64Path = e.target.result;
+          this.cardImageBase64 = this.imgBase64Path;
+          this.isImageSaved = true;
+          this.registeredUser.photo = this.cardImageBase64;
+          console.log(this.registeredUser)
+        };
+      };
+      reader.readAsDataURL(fileInput.target.files[0]);
+    }
   }
 }

@@ -1,8 +1,14 @@
+<ng-container>
+  <div class="title">
+    <h3>Lista de usuarios / Registrar usuarios</h3>
+  </div>
+</ng-container>
+
 <app-user-list [userList] = "RegisteredUsers"></app-user-list>
 
 <app-register (confirmedUser)="addUser($event)"></app-register>
 
 
-<nav><a routerLink="/adminPanel" >Panel d'administrador</a>
+<nav class="centerItems"><button routerLink="/adminPanel" >Panel d'administrador</button>
 </nav>
 

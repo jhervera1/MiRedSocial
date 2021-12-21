@@ -20,3 +20,11 @@
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
 }
+
+label{
+  display:flex;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top:10px;
+  justify-content: center;
+}

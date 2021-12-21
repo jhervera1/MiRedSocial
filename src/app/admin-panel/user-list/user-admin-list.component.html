@@ -1,4 +1,13 @@
-<div *ngFor="let user of userList" (click)="openDetails(user)">
-  <p>{{user.name}}
-  <img src="../../../assets/232227.png" (click)="deleteUser(user)"></p>
+
+<div class="description">
+  <span class="text">
+    Para ver los detalles del usuario porfavor haga click en el nombre y a la cruz para borrarlo.
+  </span>
+</div>
+
+<div class="cardItem" *ngFor="let user of userList" (click)="openDetails(user)">
+  <div class="containerItem">
+    <p>{{user.name}}
+    <img class="mImg" src="../../../assets/232227.png" (click)="deleteUser(user)"></p>
+  </div>
 </div>

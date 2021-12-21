@@ -10,13 +10,15 @@ export class UserDetailsComponent implements OnInit {
 
 
   user:registerUser|any = {};
-
+  imgBase64Path: string = '';
+  isImageSaved: boolean = false;
+  cardImageBase64: string = '';
   constructor() {
 
    }
 
   ngOnInit(): void {
-    console.log(this.user.photo)
+
   }
 
 }

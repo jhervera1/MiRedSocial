@@ -1,5 +1,15 @@
-<div class="card" *ngFor="let user of userList" (click)="openDetails(user)">
-  <div class="container">
+
+
+
+<div class="description">
+  <span class="text">
+    Para ver los detalles del usuario porfavor haga click en el nombre.
+  </span>
+</div>
+
+
+<div class="cardItem" *ngFor="let user of userList" (click)="openDetails(user)">
+  <div class="containerItem">
     <p>{{user.name}}</p>
   </div>
 

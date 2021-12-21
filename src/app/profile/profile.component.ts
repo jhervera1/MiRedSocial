@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
 
   addUser(registeredUser:registerUser){
     this.RegisteredUsers.push(registeredUser);
+    this.userService.setUser(this.RegisteredUsers);
+    this.userService.saveUsers();
   }
 
 }
