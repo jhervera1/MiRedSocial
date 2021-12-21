@@ -29,6 +29,7 @@ export class UserAdminListComponent implements OnInit {
       if(user == element){
         this.userList.splice(index,1);
         this.userService.setUser(this.userList);
+        this.userService.saveUsers();
       }
     });
   }
